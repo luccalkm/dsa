@@ -19,7 +19,7 @@ public class ArrayList <T> {
 		elements++;
 	}
 	
-	public void insertAt(T value, int index) {
+	public void insertAt(int index, T value) {
 		if(index < 0 || index > elements) {
 			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds for " + elements + "." );
 		}
@@ -31,9 +31,47 @@ public class ArrayList <T> {
 		this.array[index] = value;
 		elements++;
 	}
-	/*
-	 * HELPERS 
-	 */
+	
+	public T get(int index) {
+		if(!isWithinRange(index)) return null;
+		return this.array[index];
+	}
+	
+	public void set(int index, T value) {
+		if(!isWithinRange(index)) return;
+		this.array[index] = value;
+	}
+	
+	public void remove(int index) {
+		if(!isWithinRange(index)) return;
+		
+		for(int i = index; i < this.array.length - 1; i++) {
+			this.array[i] = this.array[i + 1];
+		}
+		elements--;
+	}
+	
+	public int size() {
+		return elements;
+	}
+	
+	public boolean isEmpty() {
+		return elements == 0;
+	}
+	
+	public boolean contains(T value) {
+		return false;
+	}
+	
+	public void clear() {
+		this.array = (T[]) new Object[INITIAL_SIZE];
+		this.elements = 0;
+	}
+	
+	private boolean isWithinRange(int index) {
+		return (index >= 0 && index < this.array.length);
+	}
+	
 	private void ensureCapacity(int requiredCapacity) {
 		int capacity = this.array.length;
 		if(requiredCapacity > capacity) {
@@ -50,8 +88,10 @@ public class ArrayList <T> {
 		StringBuilder sb = new StringBuilder();
 		sb.append('[');
 		for(int i = 0; i < elements; i++) {
-			sb.append(this.array[i]);
-			sb.append(',');
+			if(this.array[i] != null) {
+				sb.append(this.array[i]);
+				sb.append(',');
+			}
 		}
 	    if (elements > 0) {
 	        sb.setLength(sb.length() - 1);
