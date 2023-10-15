@@ -1,28 +1,20 @@
 package datastructures.arraylist;
 
+import java.util.Random;
+
 public class Main {
 	public static void main(String[] args) {
-		ArrayList<Integer> list = new ArrayList<>();
+		DynamicArray<Integer> list = new DynamicArray<>();
+		Random r = new Random();
 		
-		list.add(54);
-		list.add(1);
-		list.add(2);
-		list.add(4);
-		list.add(3);
+		for(int i = 0; i < 10; i++) {
+			list.add(r.nextInt(0, 100));
+		}
+		
+		System.out.println("Before: ");
 		list.printList();
-
-		list.add(12);
-		list.printList();
-
-		list.insertAt(3, 3);
-		list.printList();
-
-		list.remove(0);
-		list.printList();
-		list.add(7);
-		list.clear();
-
-		list.add(7);
+		System.out.println("\nAfter: ");
+		list.sort();
 		list.printList();
 	}
 }
