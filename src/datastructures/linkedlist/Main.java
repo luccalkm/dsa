@@ -6,11 +6,11 @@ public class Main {
 		LinkedList<Integer> ll = new LinkedList<>(5);
 		ll.printList();
 
-		ll.append(new Node<>(6));
+		ll.append(6);
 		
 		ll.printList();
 		
-		ll.prepend(new Node<>(36));
+		ll.prepend(36);
 		
 		ll.printList();
 
@@ -18,8 +18,8 @@ public class Main {
 		
 		ll.printList();
 		
-		ll.insertAt(new Node<>(55), 0);
-		ll.insertAt(new Node<>(101), 3);
+		ll.insertAt(55, 0);
+		ll.insertAt(101, 3);
 		
 		ll.printList();
 		

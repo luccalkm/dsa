@@ -32,10 +32,17 @@ public class Queue <T> {
 	
 	public Node<T> dequeue() {
 		if(length == 0) return null;
+		
 		Node<T> node = first;
-		if(length == 1) {
-			first = null;
+		first = first.next;		
+		
+		if(first == null) {
 			last = null;
 		}
+		length--;
+
+		node.next = null;
+		
+		return node;
 	}
 }

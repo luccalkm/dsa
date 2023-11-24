@@ -14,7 +14,7 @@ public class LinkedList<T> {
 	private void isFirstElement(Node<T> firstNode) {
 		if (elements == 0) {
 			head = firstNode;
-			tail = firstNode;
+			tail = firstNode; 
 		}
 	}
 
@@ -62,7 +62,7 @@ public class LinkedList<T> {
 	}
 
 	public void append(T element) {
-		Node<T> newNode = new Node<>(element);
+		Node<T> newNode = new Node<T>(element);
 		this.isFirstElement(newNode);
 
 		tail.next = newNode;
