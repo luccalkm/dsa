@@ -1,7 +1,7 @@
 package connectionPool.Q1;
 
 public class No <T> {
-	No<T> posterior;
+	No<T> proximo;
 	No<T> anterior;
 	T val;
 	
